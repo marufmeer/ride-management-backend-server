@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DriverRoutes = void 0;
+const express_1 = require("express");
+const driver_controller_1 = require("./driver.controller");
+const checkAuth_1 = require("../../middlewares/checkAuth");
+const user_interface_1 = require("../user/user.interface");
+const validateRequest_1 = require("../../middlewares/validateRequest");
+const driver_validate_1 = require("./driver.validate");
+const router = (0, express_1.Router)();
+router.post("/driver-apply", (0, validateRequest_1.validateRequest)(driver_validate_1.applyDriverZodSchema), (0, checkAuth_1.checkAuth)(user_interface_1.Role.USER), driver_controller_1.driverControllers.applyForDriver);
+router.get("/all-drivers", (0, checkAuth_1.checkAuth)(user_interface_1.Role.SUPER_ADMIN, user_interface_1.Role.ADMIN), driver_controller_1.driverControllers.getAllDrivers);
+router.patch("/approve/:id", (0, validateRequest_1.validateRequest)(driver_validate_1.updateDriverStatusZodSchema), (0, checkAuth_1.checkAuth)(user_interface_1.Role.SUPER_ADMIN, user_interface_1.Role.ADMIN), driver_controller_1.driverControllers.approveDriverStatus);
+router.get("/:id", (0, checkAuth_1.checkAuth)(user_interface_1.Role.SUPER_ADMIN, user_interface_1.Role.ADMIN), driver_controller_1.driverControllers.getOneDriver);
+router.patch("/:id", (0, validateRequest_1.validateRequest)(driver_validate_1.updateDriverZodSchema), (0, checkAuth_1.checkAuth)(...Object.values(user_interface_1.Role)), driver_controller_1.driverControllers.updateOneDriver);
+exports.DriverRoutes = router;
