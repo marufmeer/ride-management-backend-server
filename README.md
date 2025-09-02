@@ -102,5 +102,99 @@ The project follows a modular architecture to keep the codebase clean, scalable,
 ```
 
 <br> </br>
+## 🔑 API Endpoints Summary
+⚠️ Important Note for Testers: Due to the reasons mentioned in the `"Temporarily Disabled Features"` section, please skip testing any routes related to `Google Login`, `OTP`, `Set Password`, or `password resets`.
 
+
+Authentication `(/api/v1/auth)`
+
+
+    Endpoint	        Method	            Description	Required                                            Role(s)
+    /login	                POST	            Log in a user with email and password.	                    Public
+    /google	                POST	            Log in with goole.	                                        Public
+    /refresh-token	        POST	            Generate a new access token using a refresh token.	        Public
+    /change-password        POST	            Change the password for a logged-in user.	                  super admin ,admin, rider, driver
+    /set-password        POST	                 set the password for google auth logged in user.	            super admin ,admin, rider, driver
+    /forgot-password        POST	           forgot  password sending a link of reset password.	             super admin  ,admin, rider, driver
+    /reset-password        POST	            Change the password for a logged-in user.	                    super admin  , admin, rider, driver
+
+
+<br> </br>
+
+User `(/api/v1/user)`
+
+
+    Endpoint	        Method	            Description	Required                                            Role(s)
+    /register	        POST	            Register a new user (defaults to rider role & verified).	    Public
+    /me	                GET	            Get the profile of the currently logged-in user.	            admin, rider, driver
+    /all-users             GET	            Get a list of all users.	                                    admin
+    /:id                GET	            Get a single user's details by ID.	                            admin
+    /:id               PATCH	            Update user information.	                                    admin, rider, driver
+
+
+
+
+
+<br> </br>
+
+Ride `(/api/v1/rides)`
+
+
+    Endpoint	        Method	            Description	Required                                            Role(s)
+    /ride-request	                POST	            Request a new ride.	                                            rider
+    /get-all-rides	                GET	            View all rides in the system	                           super admin, admin
+    /get-my-rides               GET	            View personal ride history.	                                    rider,driver
+    /payment-status-update/:rideId        PATCH	    Update payment status after complete the ride.	                                    rider
+   /ride-status-update/:rideId    PATCH	            ride status update by user and driver.	                            user,driver
+    /:rideId                      GET                get single ride                                                 admin
+
+
+
+
+<br> </br>
+
+Driver `(/api/v1/drivers)`
+
+
+    Endpoint	                        Method	            Description	Required                                            Role(s)
+    /driver-apply                        POST	            Submit an application to become a driver.	                    rider
+    /all-drivers                         GET	            View all pending driver applications.	                    super admin,admin
+    /approve/:id                           PATCH            approved or reject driver.  	                              super admin, admin
+    /:id                                    GET	              get single driver.	                                   admin
+    /:id      PATCH	                                     Update driver.	                    admin  ,driver   
+ 
+
+
+
+
+
+
+<br> </br>
+
+Analytics `(/api/v1/stats)`
+
+
+    Endpoint	                        Method	            Description	Required                                            Role(s)
+    /driver                                  GET	            Get dashboard statistics for the admin panel.	           super admin, admin
+    /user                                 GET	            Get dashboard statistics for the admin panel.	           super,admin admin
+    /ride                                GET	            Get dashboard statistics for the admin panel.	            super,admin
+
+
+
+
+
+<br> </br>
+Analytics `(/api/v1/otp)`
+
+
+    Endpoint	                        Method	            Description	Required                                            Role(s)
+    /send                               POST                send otp for verify the user	                                     User
+    /verify                                POST                       verify the otp                                          User
+    /resend                                POST 	            resend otp	                                                     User
+
+
+
+
+
+<br> </br>
 
