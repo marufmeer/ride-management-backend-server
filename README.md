@@ -140,13 +140,13 @@ User `(/api/v1/user)`
 Ride `(/api/v1/rides)`
 
 
-    Endpoint	        Method	            Description	Required                                            Role(s)
-    /ride-request	                POST	            Request a new ride.	                                   rider
-    /get-all-rides	                GET	            View all rides in the system	                         super admin, admin
-    /get-my-rides               GET	            View personal ride history.	                               rider,driver
-    /payment-status-update/:rideId        PATCH	    Update payment status after complete the ride.	       rider
-   /ride-status-update/:rideId    PATCH	            ride status update by user and driver.	               user,driver
-    /:rideId                      GET                get single ride                                       admin
+    Endpoint	                      Method	         Description	Required                                            Role(s)
+    /ride-request	                  POST	           Request a new ride.	                                            rider
+    /get-all-rides	                GET	            View all rides in the system	                                    super admin, admin
+    /get-my-rides                   GET	            View personal ride history.	                                      rider,driver
+    /payment-status-update/:rideId  PATCH	          Update payment status after complete the ride.	                  rider
+   /ride-status-update/:rideId      PATCH	           ride status update by user and driver.	                          user,driver
+    /:rideId                        GET                get single ride                                                admin
 
 
 
@@ -157,11 +157,11 @@ Driver `(/api/v1/drivers)`
 
 
     Endpoint	                        Method	            Description	Required                                            Role(s)
-    /driver-apply                        POST	            Submit an application to become a driver.	                      rider
-    /all-drivers                         GET	            View all pending driver applications.	                          super admin,admin
-    /approve/:id                           PATCH            approved or reject driver.  	                                super admin, admin
-    /:id                                    GET	              get single driver.	                                        admin
-    /:id      PATCH	                                     Update driver.	                    admin  ,driver   
+    /driver-apply                      POST	            Submit an application to become a driver.	                        rider
+    /all-drivers                       GET	            View all pending driver applications.	                            super admin,admin
+    /approve/:id                       PATCH            approved or reject driver.  	                                    super admin, admin
+    /:id                               GET	             get single driver.	                                              admin
+    /:id                               PATCH	           Update driver.	                                                  admin  ,driver   
  
 
 
@@ -175,9 +175,9 @@ Analytics `(/api/v1/stats)`
 
 
     Endpoint	                        Method	            Description	Required                                            Role(s)
-    /driver                                  GET	            Get dashboard statistics for the admin panel.	           super admin, admin
-    /user                                 GET	            Get dashboard statistics for the admin panel.	               super,admin admin
-    /ride                                GET	            Get dashboard statistics for the admin panel.	               super,admin
+    /driver                             GET	            Get dashboard statistics for the admin panel.	               super admin, admin
+    /user                               GET	            Get dashboard statistics for the admin panel.	               super,admin admin
+    /ride                               GET	            Get dashboard statistics for the admin panel.	               super,admin
 
 
 
@@ -187,10 +187,10 @@ Analytics `(/api/v1/stats)`
 Analytics `(/api/v1/otp)`
 
 
-    Endpoint	                        Method	            Description	Required                                            Role(s)
-    /send                               POST                send otp for verify the user	                                 User
-    /verify                                POST                       verify the otp                                       User
-    /resend                                POST 	            resend otp	                                                 User
+    Endpoint	                        Method	               Description	Required                                            Role(s)
+    /send                               POST                 send otp for verify the user	                                     User
+    /verify                             POST                 verify the otp                                                    User
+    /resend                             POST 	                resend otp	                                                     User
 
 
 
@@ -201,9 +201,9 @@ Analytics `(/api/v1/otp)`
 
 ###### 1. Clone the repository: 
 ```
- git clone https://github.com/codewithsaidul/ride-booking-system-assignment-five
+ git clone https://github.com/marufmeer/ride-management-backend-server.git
 
- cd ride-booking-system-assignment-five/server
+ cd ride-management-backend-server
 
 ```
 ###### 2. Install dependencies:
